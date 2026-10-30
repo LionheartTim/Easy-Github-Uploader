@@ -3,6 +3,9 @@
 No repository is changed until commit_and_push is called. All work happens
 in a temporary clone, so the selected source folder is never modified.
 """
+# Copyright (C) 2026 LionheartTim
+# SPDX-License-Identifier: GPL-3.0-only
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field

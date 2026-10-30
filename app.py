@@ -1,4 +1,7 @@
 """Four-step Qt6 interface: sign in, read repository, choose folder, upload."""
+# Copyright (C) 2026 LionheartTim
+# SPDX-License-Identifier: GPL-3.0-only
+
 from __future__ import annotations
 
 import re
@@ -21,6 +24,10 @@ from backend import (
 )
 
 
+APP_VERSION = '1.0.0'
+AUTHOR_GITHUB_URL = 'https://github.com/LionheartTim'
+
+
 STYLE = """
 QWidget { background: #111827; color: #e5edf8; font-size: 13px; }
 QLabel { background: transparent; }
@@ -30,6 +37,7 @@ QLabel#subtitle { color: #9caac0; font-size: 13px; }
 QLabel#step { color: #7caefa; font-weight: 600; font-size: 12px; }
 QLabel#headline { color: #f8fafc; font-size: 20px; font-weight: 700; }
 QLabel#muted { color: #a9b7c9; }
+QLabel#footer { color: #94a3b8; font-size: 12px; }
 QFrame#panel, QFrame#drop { background: #1c293b; border: 1px solid #34455e; border-radius: 13px; }
 QFrame#drop[hovered="true"] { border: 2px dashed #5da6ff; background: #263f5c; }
 QLineEdit { background: #101b2a; border: 1px solid #455c79; border-radius: 8px; padding: 12px; color: white; selection-background-color: #3c81ce; }
@@ -225,6 +233,32 @@ class UploaderWindow(QMainWindow):
         nav.addWidget(self.back_button)
         nav.addWidget(self.next_button)
         main.addLayout(nav)
+
+        # Always-visible version and author credits, on every step.
+        footer_rule = QFrame()
+        footer_rule.setFrameShape(QFrame.Shape.HLine)
+        footer_rule.setStyleSheet('color: #34455e; background: #34455e; max-height: 1px;')
+        main.addWidget(footer_rule)
+        footer = QHBoxLayout()
+        footer.setContentsMargins(0, 0, 0, 0)
+        version_label = QLabel(f'v{APP_VERSION}')
+        version_label.setObjectName('footer')
+        footer.addWidget(version_label)
+        footer.addStretch()
+        author_label = QLabel(
+            f'Made by <a href="{AUTHOR_GITHUB_URL}" '
+            'style="color: #88bdff; text-decoration: underline;">LionheartTim</a>'
+        )
+        author_label.setObjectName('footer')
+        author_label.setOpenExternalLinks(True)
+        author_label.setTextInteractionFlags(
+            Qt.TextInteractionFlag.LinksAccessibleByMouse
+            | Qt.TextInteractionFlag.LinksAccessibleByKeyboard
+        )
+        author_label.setToolTip(AUTHOR_GITHUB_URL)
+        footer.addWidget(author_label)
+        main.addLayout(footer)
+
         self._set_page(0)
         self._job(check_login, self._login_checked)
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.LionheartTim.EasyGithubUploader</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>Easy-Github-Uploader</name>
+  <summary>Upload complete project folders to GitHub with a simple Qt6 interface</summary>
+  <description>
+    <p>
+      Easy-Github-Uploader is a Linux desktop application that lets you publish
+      your project files to an existing GitHub repository without manually
+      running Git commands. Sign in using your browser, paste a repository URL,
+      choose or drag and drop a folder, and confirm the upload.
+    </p>
+    <p>
+      The app supports the first upload to an empty repository and replacement
+      of existing files while preserving Git history. It previews changes,
+      excludes common generated and sensitive files, and never changes the
+      original local project folder.
+    </p>
+  </description>
+  <launchable type="desktop-id">easy-github-uploader.desktop</launchable>
+  <url type="homepage">https://github.com/LionheartTim/Easy-Github-Uploader</url>
+  <url type="bugtracker">https://github.com/LionheartTim/Easy-Github-Uploader/issues</url>
+  <categories>
+    <category>Development</category>
+    <category>Utility</category>
+  </categories>
+  <keywords>
+    <keyword>GitHub</keyword>
+    <keyword>Git</keyword>
+    <keyword>upload</keyword>
+    <keyword>repository</keyword>
+    <keyword>folder</keyword>
+  </keywords>
+  <releases>
+    <release version="1.0.0" date="2026-10-30">
+      <description>
+        <p>Added a persistent version and author footer, with a clickable GitHub profile link.</p>
+      </description>
+    </release>
+    <release version="0.1.2" date="2026-10-30">
+      <description>
+        <p>Added the GPL-3.0-only license and AppStream application metadata.</p>
+      </description>
+    </release>
+    <release version="0.1.1" date="2026-10-30">
+      <description>
+        <p>Fixed uploads to empty GitHub repositories and switched the interface to English.</p>
+      </description>
+    </release>
+  </releases>
+</component>

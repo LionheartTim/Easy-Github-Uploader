@@ -1,4 +1,4 @@
-# Easy-Github-Uploader v0.1.1
+# Easy-Github-Uploader v1.0.0
 
 A simple Qt6 Linux desktop application with just four steps:
 
@@ -6,6 +6,17 @@ A simple Qt6 Linux desktop application with just four steps:
 2. **Read repository** — paste the GitHub repository URL; the app checks write access and identifies the default branch.
 3. **Select folder** — drag and drop your project folder or browse for it.
 4. **Upload** — review the changes, confirm, and upload.
+
+## Version 1.0.0
+
+The application now displays an always-visible footer across all four steps: **v1.0.0** at the bottom left and **Made by [LionheartTim](https://github.com/LionheartTim)** at the bottom right. Clicking the author name opens the GitHub profile in your default browser. No changes were made to the upload workflow.
+
+## Added in v0.1.2
+
+- **`LICENSE`** — complete GNU General Public License version 3 text. The project is offered under **GPL-3.0-only**.
+- **`io.github.LionheartTim.EasyGithubUploader.metainfo.xml`** — AppStream metadata describing the app, including its ID, license, GitHub links, features, and release details. The `launchable` entry matches the KDE shortcut created by `install-launcher.sh` (`easy-github-uploader.desktop`).
+
+**No changes to the tested upload workflow:** the four-step English interface and the empty-repository fix from v0.1.1 are retained. Uploading this new folder to the existing GitHub repository should preview the added license and XML metadata and replace the old version. Merely adding AppStream XML to a GitHub repository does not publish the app to Flathub; distribution packaging can be added later.
 
 ## Fixed in v0.1.1
 
@@ -25,7 +36,7 @@ No GitHub password or token is stored by this application. Authentication uses G
 ## Run
 
 1. Extract the ZIP (for example, to your Desktop).
-2. Open a terminal in the extracted `Easy-Github-Uploader-v0.1.1` directory.
+2. Open a terminal in the extracted `Easy-Github-Uploader-v1.0.0` directory.
 3. Run:
 
 ```bash
@@ -40,7 +51,7 @@ To add a KDE application-menu shortcut, run:
 ./install-launcher.sh
 ```
 
-**If you installed the v0.1.0 shortcut, run `./install-launcher.sh` from the new v0.1.1 folder to update the shortcut to the new version.** Otherwise the old shortcut may still open the unfixed app.
+**If you use the application-menu shortcut, run `./install-launcher.sh` from the new v1.0.0 folder to point it at this version.** Otherwise the shortcut may still open the previous version.
 
 ## What the uploader does
 
@@ -68,8 +79,12 @@ python3 -m unittest discover -s tests -v
 
 Tests cover first upload to empty Git repositories, replacement on an existing branch, rejected stale pushes, missing target branches, URL parsing, excluded files, and unchanged source folders.
 
-This release's graphical interface has not yet been verified on your Bazzite installation.
+The user confirmed that v0.1.1 launched and successfully uploaded to an empty GitHub repository on Bazzite. Version 1.0.0 retains that workflow, adds the version/author footer, and updates the AppStream metadata. The upload workflow has not been revalidated on Bazzite for v1.0.0 yet.
 
 ## Technical overview
 
 Python, PySide6 (Qt6), Git, and GitHub CLI; no embedded OAuth webview and no forced push. This app does not create GitHub repositories — it *can* create the first commit in an already created empty repository.
+
+## License
+
+Copyright (C) 2026 LionheartTim. This project is licensed under **GNU GPL version 3 only** (`GPL-3.0-only`). See [`LICENSE`](LICENSE). The AppStream XML metadata is licensed under `CC0-1.0`, as declared in its `metadata_license` element.
