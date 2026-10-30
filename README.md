@@ -1,4 +1,4 @@
-# Easy-Github-Uploader v1.0.0
+# Easy-Github-Uploader v1.0.1
 
 A simple Qt6 Linux desktop application with just four steps:
 
@@ -6,6 +6,12 @@ A simple Qt6 Linux desktop application with just four steps:
 2. **Read repository** — paste the GitHub repository URL; the app checks write access and identifies the default branch.
 3. **Select folder** — drag and drop your project folder or browse for it.
 4. **Upload** — review the changes, confirm, and upload.
+
+## New in v1.0.1 — EGU application icon
+
+The chosen EGU blue GitHub upload icon is included in multiple PNG resolutions under `assets/icons/hicolor/`. The Qt6 app now shows the image as its window/taskbar icon. `install-launcher.sh` installs the PNGs to your user's XDG icon theme and updates the existing KDE application-menu shortcut, with no root privileges required. The AppStream metadata includes the matching stock icon name. **No changes were made to the upload workflow.**
+
+**Important:** Extract the entire new ZIP (including `assets/`) to a separate folder; don't copy only `app.py`. Run `./install-launcher.sh` again from v1.0.1 to update the menu shortcut and icon.
 
 ## Version 1.0.0
 
@@ -36,7 +42,7 @@ No GitHub password or token is stored by this application. Authentication uses G
 ## Run
 
 1. Extract the ZIP (for example, to your Desktop).
-2. Open a terminal in the extracted `Easy-Github-Uploader-v1.0.0` directory.
+2. Open a terminal in the extracted `Easy-Github-Uploader-v1.0.1` directory.
 3. Run:
 
 ```bash
@@ -51,7 +57,7 @@ To add a KDE application-menu shortcut, run:
 ./install-launcher.sh
 ```
 
-**If you use the application-menu shortcut, run `./install-launcher.sh` from the new v1.0.0 folder to point it at this version.** Otherwise the shortcut may still open the previous version.
+**If you use the application-menu shortcut, run `./install-launcher.sh` from the new v1.0.1 folder to point it at this version.** Otherwise the shortcut may still open the previous version.
 
 ## What the uploader does
 
@@ -79,7 +85,7 @@ python3 -m unittest discover -s tests -v
 
 Tests cover first upload to empty Git repositories, replacement on an existing branch, rejected stale pushes, missing target branches, URL parsing, excluded files, and unchanged source folders.
 
-The user confirmed that v0.1.1 launched and successfully uploaded to an empty GitHub repository on Bazzite. Version 1.0.0 retains that workflow, adds the version/author footer, and updates the AppStream metadata. The upload workflow has not been revalidated on Bazzite for v1.0.0 yet.
+The user confirmed the complete v1.0.0 workflow and clickable author footer on Bazzite. Version 1.0.1 changes only icon/launcher/metadata integration; the graphical icon appearance and the updated launcher still need Bazzite testing.
 
 ## Technical overview
 

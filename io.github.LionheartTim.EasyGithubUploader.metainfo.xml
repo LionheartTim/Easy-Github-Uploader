@@ -20,6 +20,7 @@
     </p>
   </description>
   <launchable type="desktop-id">easy-github-uploader.desktop</launchable>
+  <icon type="stock">io.github.LionheartTim.EasyGithubUploader</icon>
   <url type="homepage">https://github.com/LionheartTim/Easy-Github-Uploader</url>
   <url type="bugtracker">https://github.com/LionheartTim/Easy-Github-Uploader/issues</url>
   <categories>
@@ -34,6 +35,11 @@
     <keyword>folder</keyword>
   </keywords>
   <releases>
+    <release version="1.0.1" date="2026-10-30">
+      <description>
+        <p>Added the official EGU application icon to the Qt6 window, Linux desktop launcher, and AppStream metadata.</p>
+      </description>
+    </release>
     <release version="1.0.0" date="2026-10-30">
       <description>
         <p>Added a persistent version and author footer, with a clickable GitHub profile link.</p>

@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Callable
 
 from PySide6.QtCore import Qt, QProcess, QProcessEnvironment, QThread, QUrl, Signal
-from PySide6.QtGui import QDesktopServices, QFont
+from PySide6.QtGui import QDesktopServices, QFont, QIcon
 from PySide6.QtWidgets import (
     QApplication, QDialog, QFileDialog, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QMainWindow, QMessageBox, QPlainTextEdit, QProgressBar,
@@ -24,8 +24,10 @@ from backend import (
 )
 
 
-APP_VERSION = '1.0.0'
+APP_VERSION = '1.0.1'
 AUTHOR_GITHUB_URL = 'https://github.com/LionheartTim'
+APP_ID = 'io.github.LionheartTim.EasyGithubUploader'
+ICON_FILE = Path(__file__).resolve().parent / 'assets' / 'icons' / 'hicolor' / '512x512' / 'apps' / f'{APP_ID}.png'
 
 
 STYLE = """
@@ -619,10 +621,15 @@ class UploaderWindow(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
+    app.setDesktopFileName('easy-github-uploader')
+    app.setApplicationName('Easy-Github-Uploader')
+    icon = QIcon(str(ICON_FILE))
+    app.setWindowIcon(icon)
     app.setStyle('Fusion')
     app.setStyleSheet(STYLE)
     app.setFont(QFont('Noto Sans', 10))
     window = UploaderWindow()
+    window.setWindowIcon(icon)
     window.show()
     sys.exit(app.exec())
 
